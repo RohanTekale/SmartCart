@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'rest_framework', 
     'orders',
     'products',
+    'cart', 
     'recommendations',
     'dashboard',
     'corsheaders',  # For handling CORS
