@@ -1,5 +1,6 @@
 from django.db import models
 from products.models import Product
+from users.models import CustomUser
 # Create your models here.
 
 class Order(models.Model):
@@ -9,7 +10,7 @@ class Order(models.Model):
         ('delivered', 'Delivered'),
         ('cancelled', 'Cancelled'),
     ]
-
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE,default=1)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
