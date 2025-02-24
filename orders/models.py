@@ -1,6 +1,7 @@
 from django.db import models
 from products.models import Product
 from users.models import CustomUser
+from django.urls import reverse
 # Create your models here.
 
 class Order(models.Model):
@@ -20,5 +21,8 @@ class Order(models.Model):
     def save(self, *args, **kwargs):
         self.total_price = self.product.price * self.quantity
         super().save(*args, **kwargs)
+
+    def get_invoice_url(self):
+        return reverse('generate_invoice', args = [self.id])
     def __str__(self):
         return f"Order {self.id} - {self.product.name} ({self.status})"

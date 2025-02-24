@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { width: 80%; margin: auto; border: 1px solid #ddd; padding: 20px; }
+        h1 { text-align: center; color: #333; }
+        .invoice-header { display: flex; justify-content: space-between; }
+        .order-details { margin-top: 20px; }
+        .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Invoice</h1>
+        <div class="invoice-header">
+            <div>
+                <h3>Customer Details</h3>
+                <p>Name: {{ order.user.username }}</p>
+                <p>Email: {{ order.user.email }}</p>
+            </div>
+            <div>
+                <h3>Order Details</h3>
+                <p>Order ID: {{ order.id }}</p>
+                <p>Date: {{ order.created_at|date:"d M Y" }}</p>
+                <p>Status: {{ order.status }}</p>
+            </div>
+        </div>
+
+        <div class="order-details">
+            <h3>Product Details</h3>
+            <p>Product: {{ order.product.name }}</p>
+            <p>Quantity: {{ order.quantity }}</p>
+            <p>Price per unit: ${{ order.product.price }}</p>
+            <p><strong>Total Price: ${{ order.total_price }}</strong></p>
+        </div>
+
+        <div class="footer">
+            <p>Thank you for your purchase!</p>
+        </div>
+    </div>
+</body>
+</html>

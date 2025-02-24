@@ -13,3 +13,4 @@ requests==2.31.0
 Pillow==9.5.0
 scikit-learn==1.2.2
 drf-yasg==1.21.5
+weasyprint
