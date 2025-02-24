@@ -175,6 +175,7 @@ INSTALLED_APPS = [
     # Third-Party Apps
     'drf_yasg',
     'rest_framework',
+    'django_filters',
     'rest_framework_simplejwt',  # JWT Authentication
     'corsheaders',  # CORS Handling
     'whitenoise.runserver_nostatic',  # Static Files Optimization
